@@ -1,0 +1,23 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:dxm="http://schemas.devexpress.com/winfx/2008/xaml/map" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors" 
+        x:Class="DXMap_CustomEllipses.MainWindow"
+        Title="Press Shift to create ellipses" Height="350" Width="525">
+    <Grid>
+
+        <dxm:MapControl Name="mapControl" SelectionMode="None"  CenterPoint="45,10" EnableScrolling="True" EnableZooming="True" ZoomLevel="2" MouseDown="mapControl_MouseDown">
+            <dxm:ImageTilesLayer>
+                <dxm:BingMapDataProvider BingKey="YOUR_BING_KEY"/>
+            </dxm:ImageTilesLayer>
+            <dxm:VectorLayer Name="vectorLayer" EnableHighlighting="False"  >
+                <dxm:MapItemStorage x:Name="itemsStorage" />
+            </dxm:VectorLayer>
+
+        </dxm:MapControl>
+
+        <Button Name="button" Content="Clear" HorizontalAlignment="Right" Margin="0,9,10,0" VerticalAlignment="Top" Width="61" Click="Button_Click"/>
+        <dxe:SpinEdit x:Name="seRadius" HorizontalAlignment="Right" Margin="0,8,76,0" VerticalAlignment="Top" Width="99" Increment="100" Value="1500"/>
+
+    </Grid>
+</Window>
