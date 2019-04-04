@@ -2,7 +2,7 @@
 *Files to look at*:
 
 * [EllipseCreator.cs](./CS/DXMap_CustomEllipses/EllipseCreator.cs) (VB: [EllipseCreator.vb](./VB/DXMap_CustomEllipses/EllipseCreator.vb))
-* [MainWindow.xaml](./CS/DXMap_CustomEllipses/MainWindow.xaml) (VB: [MainWindow.xaml.vb](./VB/DXMap_CustomEllipses/MainWindow.xaml.vb))
+* [MainWindow.xaml](./CS/DXMap_CustomEllipses/MainWindow.xaml) (VB: [MainWindow.xaml](./VB/DXMap_CustomEllipses/MainWindow.xaml))
 * [MainWindow.xaml.cs](./CS/DXMap_CustomEllipses/MainWindow.xaml.cs) (VB: [MainWindow.xaml.vb](./VB/DXMap_CustomEllipses/MainWindow.xaml.vb))
 <!-- default file list end -->
 # How to display a circle on a Map in a custom manner
