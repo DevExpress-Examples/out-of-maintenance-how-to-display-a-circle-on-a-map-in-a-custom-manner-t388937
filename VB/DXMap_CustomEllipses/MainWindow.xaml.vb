@@ -14,49 +14,49 @@ Imports System.Windows.Navigation
 Imports System.Windows.Shapes
 
 Namespace DXMap_CustomEllipses
-    ''' <summary>
-    ''' Interaction logic for MainWindow.xaml
-    ''' </summary>
-    Partial Public Class MainWindow
-        Inherits Window
+	''' <summary>
+	''' Interaction logic for MainWindow.xaml
+	''' </summary>
+	Partial Public Class MainWindow
+		Inherits Window
 
-        Public Sub New()
-            InitializeComponent()
-        End Sub
-
-
-        Private Sub Button_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
-            itemsStorage.Items.Clear()
-
-        End Sub
+		Public Sub New()
+			InitializeComponent()
+		End Sub
 
 
-        Private Sub mapControl_MouseDown(ByVal sender As Object, ByVal e As MouseButtonEventArgs)
-            If Keyboard.Modifiers = ModifierKeys.Shift Then
+		Private Sub Button_Click(ByVal sender As Object, ByVal e As RoutedEventArgs)
+			itemsStorage.Items.Clear()
 
-                Dim centerPoint As GeoPoint = vectorLayer.ScreenToGeoPoint(e.GetPosition(vectorLayer))
-                Dim radius As Double = CDbl(seRadius.Value)
-
-                Dim dot As New MapDot() With {.Location = centerPoint}
-                dot.Size = 6
-                itemsStorage.Items.Add(dot)
+		End Sub
 
 
-                Dim defaultEllipse As MapEllipse = MapEllipse.CreateByCenter(mapControl.CoordinateSystem, centerPoint, radius*2, radius*2)
-                defaultEllipse.Fill = Brushes.Transparent
-                defaultEllipse.Stroke = Brushes.White
-                itemsStorage.Items.Add(defaultEllipse)
+		Private Sub mapControl_MouseDown(ByVal sender As Object, ByVal e As MouseButtonEventArgs)
+			If Keyboard.Modifiers = ModifierKeys.Shift Then
 
-                Dim equalDistance As MapPolyline = (New EquidistantCircleCreator(vectorLayer)).CreateCircle(centerPoint, radius)
-                equalDistance.Stroke = Brushes.GreenYellow
-                itemsStorage.Items.Add(equalDistance)
+				Dim centerPoint As GeoPoint = vectorLayer.ScreenToGeoPoint(e.GetPosition(vectorLayer))
+				Dim radius As Double = CDbl(seRadius.Value)
 
-                Dim ScreenCircle As MapPolyline = (New ScreenCircleCreator(vectorLayer)).CreateCircle(centerPoint, radius)
-                ScreenCircle.Stroke = Brushes.Red
-                itemsStorage.Items.Add(ScreenCircle)
-            End If
-        End Sub
-    End Class
+				Dim dot As New MapDot() With {.Location = centerPoint}
+				dot.Size = 6
+				itemsStorage.Items.Add(dot)
+
+
+				Dim defaultEllipse As MapEllipse = MapEllipse.CreateByCenter(mapControl.CoordinateSystem, centerPoint, radius*2, radius*2)
+				defaultEllipse.Fill = Brushes.Transparent
+				defaultEllipse.Stroke = Brushes.White
+				itemsStorage.Items.Add(defaultEllipse)
+
+				Dim equalDistance As MapPolyline = (New EquidistantCircleCreator(vectorLayer)).CreateCircle(centerPoint, radius)
+				equalDistance.Stroke = Brushes.GreenYellow
+				itemsStorage.Items.Add(equalDistance)
+
+				Dim ScreenCircle As MapPolyline = (New ScreenCircleCreator(vectorLayer)).CreateCircle(centerPoint, radius)
+				ScreenCircle.Stroke = Brushes.Red
+				itemsStorage.Items.Add(ScreenCircle)
+			End If
+		End Sub
+	End Class
 
 
 End Namespace
